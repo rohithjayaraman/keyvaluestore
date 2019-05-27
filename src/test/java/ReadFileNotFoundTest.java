@@ -1,3 +1,4 @@
+import kvstore.*;
 import org.json.JSONObject;
 import org.junit.Test;
 

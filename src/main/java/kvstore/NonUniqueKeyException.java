@@ -1,3 +1,5 @@
+package kvstore;
+
 public class NonUniqueKeyException extends Throwable {
     String key;
 

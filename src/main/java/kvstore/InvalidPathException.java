@@ -1,3 +1,5 @@
+package kvstore;
+
 public class InvalidPathException extends Throwable{
     String path;
 

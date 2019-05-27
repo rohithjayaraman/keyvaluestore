@@ -1,3 +1,5 @@
+package kvstore;
+
 public class MissingKeyException extends Throwable {
     String key;
 

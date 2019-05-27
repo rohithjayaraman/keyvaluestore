@@ -1,3 +1,5 @@
+package kvstore;
+
 public class VariableBeyondSizeLimitException extends Throwable {
     String item;
 

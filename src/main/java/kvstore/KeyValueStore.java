@@ -1,3 +1,5 @@
+package kvstore;
+
 import java.io.*;
 import java.lang.management.ManagementFactory;
 import java.util.HashMap;

@@ -1,3 +1,5 @@
+import kvstore.InvalidPathException;
+import kvstore.KeyValueStore;
 import org.json.JSONObject;
 import org.junit.Test;
 

@@ -1,3 +1,5 @@
+import kvstore.InvalidPathException;
+import kvstore.KeyValueStore;
 import org.junit.Test;
 
 public class ValidPathKeyValueStoreCreationTest {
