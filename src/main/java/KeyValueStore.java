@@ -6,14 +6,14 @@ import java.util.Timer;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 
-public class kvstore
+public class KeyValueStore
 {
 
     private HashMap<String, String> storageMemory;
     private String pid;
     private String path;
 
-    public kvstore()
+    public KeyValueStore()
     {
         storageMemory = new HashMap<String, String>();
         pid= ManagementFactory.getRuntimeMXBean().getName();
@@ -21,20 +21,23 @@ public class kvstore
         File file = new File(path);
         try {
             file.createNewFile();
-        }catch (Exception e){System.out.println(e);}
+        }catch (Exception e){e.printStackTrace();}
         System.out.println(path);
     }
 
-    public kvstore(String path)
+    public KeyValueStore(String path) throws InvalidPathException
     {
         storageMemory = new HashMap<String, String>();
         pid=ManagementFactory.getRuntimeMXBean().getName();
-        this.path=path+"\\"+pid+"-keystore.ser";
+        String fileSeparator = System.getProperty("file separator");
         File file = new File(path);
+        if(!file.exists())
+            throw new InvalidPathException(path);
+        this.path=path+fileSeparator+pid+"-keystore.ser";
+        File file2 = new File(this.path);
         try {
             file.createNewFile();
-        }catch (Exception e){System.out.println(e);}
-        System.out.println(this.path);
+        }catch (Exception e){e.printStackTrace();}
     }
 
     private static synchronized void writeToFile(String filename, HashMap<String, String> kvstore)
@@ -48,7 +51,7 @@ public class kvstore
             oos.writeObject(kvstore);
             oos.close();
             fos.close();
-        }catch(Exception e){System.out.println(e);}
+        }catch(Exception e){e.printStackTrace();}
         finally {
             fos = null;
             oos = null;
@@ -68,7 +71,7 @@ public class kvstore
             kvstorage = (HashMap) ois.readObject();
             ois.close();
             fis.close();
-        }catch(Exception e){System.out.println(e);}
+        }catch(Exception e){e.printStackTrace();}
         finally {
             fis = null;
             ois = null;
@@ -105,7 +108,7 @@ public class kvstore
         writeToFile(path,storageMemory);
 
         if(ttl > 0)
-            new Timer().schedule(new ttlcheck(key,path), ttl*1000);
+            new Timer().schedule(new TimeToLive(key,path), ttl*1000);
 
         return key;
     }

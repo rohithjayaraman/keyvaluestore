@@ -4,8 +4,4 @@ public class MissingKeyException extends Throwable {
     public MissingKeyException(String x) {
         key = x;
     }
-
-    public String toString() {
-        return "Key " + key + " is not present in the key-value store";
-    }
 }
