@@ -12,7 +12,7 @@ public class DTest {
     JSONObject json = new JSONObject();
     @Test(expected = ExceededSizeLimitException.class)
     public void createWithJsonValueOverLimit() throws FileNotFoundException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
-    {   for(int i=0;i<2050;i++)
+    {   for(int i=0;i<2052;i++)
         json.put("adsd"+i,2);
         assertEquals(key,k.create(key,json));
     }
