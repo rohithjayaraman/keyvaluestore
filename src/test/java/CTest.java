@@ -6,13 +6,13 @@ import java.io.FileNotFoundException;
 
 import static org.junit.Assert.assertEquals;
 
-public class CreateKeyBeyondSizeLimitTest {
+public class CTest {
     KeyValueStore k = new KeyValueStore();
-    String key="abcdefgh123456abcxysutersjdfg432abcsd";
+    String key="abc!asdasdasd";
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
     JSONObject json = new JSONObject(jsonValue);
-    @Test(expected = VariableBeyondSizeLimitException.class)
-    public void testK() throws FileNotFoundException, VariableBeyondSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
+    @Test(expected = IllegalArgumentException.class)
+    public void testJ() throws FileNotFoundException, VariableBeyondSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
     {
         assertEquals(null,k.create(key,json));
     }

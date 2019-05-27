@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 
 import static org.junit.Assert.assertEquals;
 
-public class ReadValueTest {
+public class KTest {
     KeyValueStore k = new KeyValueStore();
     String key="asdasdfddkjsj23skduk";
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";

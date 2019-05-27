@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 
 import static org.junit.Assert.assertEquals;
 
-public class DeleteFileNotFoundTest {
+public class NTest {
     KeyValueStore k = new KeyValueStore();
     String key="abcdefgh1232abcsd";
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";

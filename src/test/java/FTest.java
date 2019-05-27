@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 
 import static org.junit.Assert.assertEquals;
 
-public class CreateNonUniqueKeyTest {
+public class FTest {
     KeyValueStore k = new KeyValueStore();
     String key="asdas2344sk44disdss23";
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";

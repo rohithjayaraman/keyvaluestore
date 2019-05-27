@@ -6,14 +6,15 @@ import java.io.FileNotFoundException;
 
 import static org.junit.Assert.assertEquals;
 
-public class CreateIllegalArgumentTest {
+public class GTest {
     KeyValueStore k = new KeyValueStore();
-    String key="abc!asdasdasd";
+    String key="asdasdkjsj23skduk";
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
     JSONObject json = new JSONObject(jsonValue);
-    @Test(expected = IllegalArgumentException.class)
-    public void testJ() throws FileNotFoundException, VariableBeyondSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
+    @Test
+    public void testC() throws FileNotFoundException, VariableBeyondSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
     {
-        assertEquals(null,k.create(key,json));
+        assertEquals(key, k.create(key, json, 2));
+        assertEquals(true,k.delete(key));
     }
 }

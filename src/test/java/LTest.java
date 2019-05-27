@@ -4,11 +4,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class ValidPathKeyValueStoreCreationTest {
+public class LTest {
     @Test
     public void testX() throws InvalidPathException
     {
         KeyValueStore kv = new KeyValueStore("C:/");
-        assertEquals(true,kv.apocalypseNow());
     }
 }

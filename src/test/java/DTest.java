@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 
 import static org.junit.Assert.assertEquals;
 
-public class CreateJsonValueBeyondLimitTest {
+public class DTest {
     KeyValueStore k = new KeyValueStore();
     String key="abcdefgh123456fg432abcsd";
     JSONObject json = new JSONObject();

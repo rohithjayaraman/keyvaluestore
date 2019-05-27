@@ -7,12 +7,12 @@ import java.io.FileNotFoundException;
 
 import static org.junit.Assert.assertEquals;
 
-public class DeleteFromEmptyFileTest {
+public class ATest {
     KeyValueStore k = new KeyValueStore();
     String key="asdasd232asddasdasd";
     @Test(expected= EmptyFileException.class)
-    public void testB() throws EmptyFileException, MissingKeyException, FileNotFoundException
+    public void testA() throws EmptyFileException, MissingKeyException, FileNotFoundException
     {
-        assertEquals(null,k.delete(key));
+        assertEquals(null,k.read(key));
     }
 }

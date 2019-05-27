@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import static java.lang.Thread.sleep;
 import static org.junit.Assert.assertEquals;
 
-public class ReadMissingKeyTest {
+public class JTest {
     KeyValueStore k = new KeyValueStore();
     String key="asdas2344sk44dis23";
     String key2="asdasdsd23dasd2312";
