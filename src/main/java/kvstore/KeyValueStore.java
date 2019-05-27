@@ -24,7 +24,6 @@ public class KeyValueStore
         try {
             file.createNewFile();
         }catch (Exception e){e.printStackTrace();}
-        System.out.println(path);
     }
 
     public KeyValueStore(String path) throws InvalidPathException
@@ -69,7 +68,7 @@ public class KeyValueStore
         try
         {
              fis = new FileInputStream(filename);
-             if((float)(new File(filename).length()/1073741824)>1) //1073741824 is cube of 1024 which will give the value of 1 GB in bytes
+             if((float)(new File(filename).length()/1073741824.0)>1) //1073741824 is cube of 1024 which will give the value of 1 GB in bytes
                  throw new ExceededSizeLimitException("file size");
              ois = new ObjectInputStream(fis);
             kvstorage = (HashMap) ois.readObject();
@@ -97,7 +96,7 @@ public class KeyValueStore
             throw new ExceededSizeLimitException("key");
         else if(!StringUtils.isAlphanumeric(key))
             throw new IllegalArgumentException();
-        else if(((value.length()*8)/1000)>=16)
+        else if((float)((value.length()*8)/1024.0)>16.0)
             throw new ExceededSizeLimitException("value");
         else if(!file.exists())
             throw new FileNotFoundException();
