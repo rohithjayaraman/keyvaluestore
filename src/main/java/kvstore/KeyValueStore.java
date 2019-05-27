@@ -92,7 +92,7 @@ public class KeyValueStore
     public synchronized String create(String key, JSONObject value, long ttl) throws FileNotFoundException, NonUniqueKeyException, IllegalArgumentException , ExceededSizeLimitException
     {
         File file = new File(path);
-        if(key.length()>32)
+        if(key.length()>32|| key.length()<1)
             throw new ExceededSizeLimitException("key");
         else if(!StringUtils.isAlphanumeric(key))
             throw new IllegalArgumentException();
