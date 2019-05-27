@@ -9,8 +9,8 @@ public class ITest {
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
     JSONObject json = new JSONObject(jsonValue);
     @Test(expected = InvalidPathException.class)
-    public void TestU() throws InvalidPathException
+    public void initWithInvalidPath() throws InvalidPathException
     {
-        KeyValueStore kvs = new KeyValueStore("F:/Random");
+        KeyValueStore kvs = new KeyValueStore("CY:/Random");
     }
 }

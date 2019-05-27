@@ -12,7 +12,7 @@ public class KTest {
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
     JSONObject json = new JSONObject(jsonValue);
     @Test
-    public void testC() throws FileNotFoundException, VariableBeyondSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
+    public void ReadValue() throws FileNotFoundException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
     {
         assertEquals(key, k.create(key, json, 2));
         assertEquals(json.toString(),k.read(key).toString());

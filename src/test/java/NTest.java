@@ -14,7 +14,7 @@ public class NTest {
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
     JSONObject json = new JSONObject(jsonValue);
     @Test(expected = FileNotFoundException.class)
-    public void testP() throws FileNotFoundException, MissingKeyException, EmptyFileException
+    public void deleteInADeletedFile() throws FileNotFoundException, MissingKeyException, EmptyFileException
     {
         assertEquals(true,k.apocalypseNow());
         assertEquals(null,k.delete(key));

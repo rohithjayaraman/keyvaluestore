@@ -13,7 +13,7 @@ public class MTest {
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
     JSONObject json = new JSONObject(jsonValue);
     @Test(expected = FileNotFoundException.class)
-    public void testN() throws InterruptedException, FileNotFoundException, VariableBeyondSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
+    public void readFromDeletedFile() throws InterruptedException, FileNotFoundException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
     {
         assertEquals(key,k.create(key,json,3));
         assertEquals(true,k.apocalypseNow());

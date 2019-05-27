@@ -12,7 +12,7 @@ public class CTest {
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
     JSONObject json = new JSONObject(jsonValue);
     @Test(expected = IllegalArgumentException.class)
-    public void testJ() throws FileNotFoundException, VariableBeyondSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
+    public void createWithIllegalKey() throws FileNotFoundException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
     {
         assertEquals(null,k.create(key,json));
     }

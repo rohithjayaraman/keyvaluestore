@@ -69,11 +69,14 @@ public class KeyValueStore
         try
         {
              fis = new FileInputStream(filename);
+             if((float)(new File(filename).length()/1073741824)>1) //1073741824 is cube of 1024 which will give the value of 1 GB in bytes
+                 throw new ExceededSizeLimitException("file size");
              ois = new ObjectInputStream(fis);
             kvstorage = (HashMap) ois.readObject();
             ois.close();
             fis.close();
         }catch(Exception e){e.printStackTrace();}
+         catch(ExceededSizeLimitException e){e.printStackTrace();}
         finally {
             fis = null;
             ois = null;
@@ -82,20 +85,20 @@ public class KeyValueStore
         return kvstorage;
     }
 
-    public synchronized String create(String key, JSONObject value) throws FileNotFoundException, NonUniqueKeyException, VariableBeyondSizeLimitException, IllegalArgumentException
+    public synchronized String create(String key, JSONObject value) throws FileNotFoundException, NonUniqueKeyException, ExceededSizeLimitException, IllegalArgumentException
     {
         return create(key, value, 0);
     }
 
-    public synchronized String create(String key, JSONObject value, long ttl) throws FileNotFoundException, NonUniqueKeyException, IllegalArgumentException , VariableBeyondSizeLimitException
+    public synchronized String create(String key, JSONObject value, long ttl) throws FileNotFoundException, NonUniqueKeyException, IllegalArgumentException , ExceededSizeLimitException
     {
         File file = new File(path);
         if(key.length()>32)
-            throw new VariableBeyondSizeLimitException("key");
+            throw new ExceededSizeLimitException("key");
         else if(!StringUtils.isAlphanumeric(key))
             throw new IllegalArgumentException();
         else if(((value.length()*8)/1000)>=16)
-            throw new VariableBeyondSizeLimitException("value");
+            throw new ExceededSizeLimitException("value");
         else if(!file.exists())
             throw new FileNotFoundException();
 

@@ -11,7 +11,7 @@ public class ATest {
     KeyValueStore k = new KeyValueStore();
     String key="asdasd232asddasdasd";
     @Test(expected= EmptyFileException.class)
-    public void testA() throws EmptyFileException, MissingKeyException, FileNotFoundException
+    public void readFromEmptyFile() throws EmptyFileException, MissingKeyException, FileNotFoundException
     {
         assertEquals(null,k.read(key));
     }

@@ -14,7 +14,7 @@ public class JTest {
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
     JSONObject json = new JSONObject(jsonValue);
     @Test(expected = MissingKeyException.class)
-    public void testH() throws  InterruptedException, VariableBeyondSizeLimitException, NonUniqueKeyException, MissingKeyException, FileNotFoundException, EmptyFileException
+    public void readMissingKey() throws  InterruptedException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, FileNotFoundException, EmptyFileException
     {
         assertEquals(key2, k.create(key2, json, 2));
         sleep(3000);

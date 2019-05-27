@@ -12,7 +12,7 @@ public class GTest {
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
     JSONObject json = new JSONObject(jsonValue);
     @Test
-    public void testC() throws FileNotFoundException, VariableBeyondSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
+    public void createAndDelete() throws FileNotFoundException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
     {
         assertEquals(key, k.create(key, json, 2));
         assertEquals(true,k.delete(key));

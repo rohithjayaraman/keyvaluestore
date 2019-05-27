@@ -11,7 +11,7 @@ public class BTest {
     KeyValueStore k = new KeyValueStore();
     String key="asdasd232asddasdasd";
     @Test(expected= EmptyFileException.class)
-    public void testB() throws EmptyFileException, MissingKeyException, FileNotFoundException
+    public void deleteFromEmptyFile() throws EmptyFileException, MissingKeyException, FileNotFoundException
     {
         assertEquals(null,k.delete(key));
     }

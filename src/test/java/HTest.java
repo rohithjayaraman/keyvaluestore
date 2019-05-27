@@ -13,7 +13,7 @@ public class HTest {
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
     JSONObject json = new JSONObject(jsonValue);
     @Test(expected = MissingKeyException.class)
-    public void testG() throws FileNotFoundException, VariableBeyondSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
+    public void deleteMissingKey() throws FileNotFoundException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
     {
         assertEquals(key,k.create(key,json));
         assertEquals(true,k.delete(key2));

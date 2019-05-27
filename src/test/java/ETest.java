@@ -11,8 +11,8 @@ public class ETest {
     String key="abcdefgh123456abcxysutersjdfg432abcsd";
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
     JSONObject json = new JSONObject(jsonValue);
-    @Test(expected = VariableBeyondSizeLimitException.class)
-    public void testK() throws FileNotFoundException, VariableBeyondSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
+    @Test(expected = ExceededSizeLimitException.class)
+    public void createWithKeySizeOverLimit() throws FileNotFoundException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
     {
         assertEquals(null,k.create(key,json));
     }

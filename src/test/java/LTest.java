@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class LTest {
     @Test
-    public void testX() throws InvalidPathException
+    public void createWithPathSpecified() throws InvalidPathException
     {
         KeyValueStore kv = new KeyValueStore("/");
     }

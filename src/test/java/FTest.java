@@ -12,7 +12,7 @@ public class FTest {
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
     JSONObject json = new JSONObject(jsonValue);
     @Test(expected = NonUniqueKeyException.class)
-public void testI() throws FileNotFoundException, VariableBeyondSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
+public void createWithNonUniqueKey() throws FileNotFoundException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
 {
     assertEquals(key,k.create(key,json));
     assertEquals(key,k.create(key,json));
