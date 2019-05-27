@@ -8,6 +8,6 @@ public class LTest {
     @Test
     public void testX() throws InvalidPathException
     {
-        KeyValueStore kv = new KeyValueStore("C:/");
+        KeyValueStore kv = new KeyValueStore("/");
     }
 }
