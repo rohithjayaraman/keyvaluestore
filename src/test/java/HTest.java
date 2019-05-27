@@ -8,14 +8,14 @@ import static org.junit.Assert.assertEquals;
 
 public class HTest {
     KeyValueStore k = new KeyValueStore();
-    String key="asdas2344skdis23";
-    String key2="asdasdsddasd2312";
+    String key="asdasdfddkjsj23skduk";
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
     JSONObject json = new JSONObject(jsonValue);
-    @Test(expected = MissingKeyException.class)
-    public void deleteMissingKey() throws FileNotFoundException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
+    @Test
+    public void ReadValue() throws FileNotFoundException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
     {
-        assertEquals(key,k.create(key,json));
-        assertEquals(true,k.delete(key2));
+        assertEquals(key, k.create(key, json, 2));
+        assertEquals(json.toString(),k.read(key).toString());
     }
+
 }

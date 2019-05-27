@@ -1,24 +1,13 @@
-import kvstore.*;
-import org.json.JSONObject;
+import kvstore.InvalidPathException;
+import kvstore.KeyValueStore;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
-
-import static java.lang.Thread.sleep;
 import static org.junit.Assert.assertEquals;
 
 public class JTest {
-    KeyValueStore k = new KeyValueStore();
-    String key="asdas2344sk44dis23";
-    String key2="asdasdsd23dasd2312";
-    String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
-    JSONObject json = new JSONObject(jsonValue);
-    @Test(expected = MissingKeyException.class)
-    public void readMissingKey() throws  InterruptedException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, FileNotFoundException, EmptyFileException
+    @Test
+    public void createWithPathSpecified() throws InvalidPathException
     {
-        assertEquals(key2, k.create(key2, json, 2));
-        sleep(3000);
-        assertEquals(null, k.read(key2));
-
+        KeyValueStore kv = new KeyValueStore("/");
     }
 }

@@ -4,18 +4,21 @@ import org.junit.Test;
 
 import java.io.FileNotFoundException;
 
+import static java.lang.Thread.sleep;
 import static org.junit.Assert.assertEquals;
 
 public class KTest {
     KeyValueStore k = new KeyValueStore();
-    String key="asdasdfddkjsj23skduk";
+    String key="asdas2344sk44dis23";
+    String key2="asdasdsd23dasd2312";
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";
     JSONObject json = new JSONObject(jsonValue);
-    @Test
-    public void ReadValue() throws FileNotFoundException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
+    @Test(expected = MissingKeyException.class)
+    public void readMissingKey() throws  InterruptedException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, FileNotFoundException, EmptyFileException
     {
-        assertEquals(key, k.create(key, json, 2));
-        assertEquals(json.toString(),k.read(key).toString());
-    }
+        assertEquals(key2, k.create(key2, json, 2));
+        sleep(3000);
+        assertEquals(null, k.read(key2));
 
+    }
 }
