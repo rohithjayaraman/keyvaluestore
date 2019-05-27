@@ -15,9 +15,9 @@ public class ttlcheck extends TimerTask
         if(this.key != null & this.key.length() > 0){
             try {
                 kvstore.delete(this.key, this.filename);
-            }catch(FileNotFoundException e){System.out.println(e+"ajsjsk: "+key);}
-             catch(MissingKeyException e){System.out.println(e+"ajsjsk "+key);}
-             catch(EmptyFileException e){System.out.println(e+"ajsjsk "+key);}
+            }catch(FileNotFoundException e){}
+             catch(MissingKeyException e){}
+             catch(EmptyFileException e){}
         }
     }
 
