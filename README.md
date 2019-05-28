@@ -49,15 +49,16 @@ String result;
 JSONObject json = new JSONObject(jsonValue);
 result = kvs.create(key, value, 3);
 ```
+Whenever using the create method in a function, the following exceptions must be handled: FileNotFoundException, ExceededSizeLimitException, NonUniqueKeyException
 #### Reading a value
-To read a value from the file, call the read function while passing the key as the argument. The function returns a json value if key was found
+To read a value from the file, call the read function while passing the key as the argument. The function returns a json value if key was found. Any function that uses the read method must handle EmptyFileException, MissingKeyException, FileNotFoundException.
 ```java
 String key = "abcdefgh123456abcxysutersjsd3212";
 JSONObject json = new JSONObject();
 json = kvs.read(key);
 ```
 #### Deleting a value
-To delete a value from the file, simply call the delete function and pass key as parameter. The function returns true if the key was found and deleted
+To delete a value from the file, simply call the delete function and pass key as parameter. The function returns true if the key was found and deleted. Any function that uses the delete method must handle EmptyFileException, MissingKeyException, FileNotFoundException
 ```java
 String key = "abcdefgh123456abcxysutersjsd3212";
 Boolean deletion;
@@ -87,13 +88,6 @@ Open terminal and navigate to the inside of the keyvaluestore folder that was do
 mvn clean test
 ```
 This should build the project and run all 15 unit tests. Once testing is done, you will get a message saying Build Successful.
-### What the tests do
-- Tests A and B try to read data and delete data from an empty file respectively
-- Tests C, D, E and F deal with illegal arguments and variables beyond size limit
-- Tests G and H do a proper creation, deletion and reading of key-value pairs
-- Tests I and J deal with creation of location specific file store. I gives an invalid path while J gives a valid path
-- Tests K and L are for attempting to read and delete with keys that are not present in the keystore file
-- Tests M, N and O deal with creating, reading or deleting from a file that does not exist i.e. a keystore that has been erased
 ### Code Coverage
 The code coverage for the unit tests can be obtained if the tests are run in an IDE with an inbuilt Code Coverage like JaCoCo. 
 Code Coverage is not a dependency for this maven project and hence cannot be obtained if the tests are being run from command line. 
