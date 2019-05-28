@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 
 import static org.junit.Assert.assertEquals;
 
-public class LTest {
+public class MissingKeyDeleteTest {
     KeyValueStore k = new KeyValueStore();
     String key="asdas2344skdis23";
     String key2="asdasdsddasd2312";

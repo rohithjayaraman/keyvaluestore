@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import static java.lang.Thread.sleep;
 import static org.junit.Assert.assertEquals;
 
-public class MTest {
+public class RunningReadOnAnInexistentFileTest {
     KeyValueStore k = new KeyValueStore();
     String key="abcdefgh123456asd";
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";

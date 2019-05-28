@@ -3,7 +3,7 @@ import kvstore.KeyValueStore;
 import org.json.JSONObject;
 import org.junit.Test;
 
-public class ITest {
+public class KeystoreCreationWithInvalidPathTest {
     KeyValueStore k = new KeyValueStore();
     String key="abcdefgh123456abcxysutersjdfg432abcsd";
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";

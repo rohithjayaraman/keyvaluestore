@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 
 import static org.junit.Assert.assertEquals;
 
-public class GTest {
+public class ErrorFreeCreateAndDeleteTest {
     KeyValueStore k = new KeyValueStore();
     String key="asdasdkjsj23skduk";
     String jsonValue = "{\"name\":\"test\", \"type\":\"family\"}";

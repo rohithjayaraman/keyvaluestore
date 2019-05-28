@@ -6,12 +6,12 @@ import java.io.FileNotFoundException;
 
 import static org.junit.Assert.assertEquals;
 
-public class DTest {
+public class CreateWithJsonValueBeyondLimitTest {
     KeyValueStore k = new KeyValueStore();
     String key="abcdefgh123456fg432abcsd";
     JSONObject json = new JSONObject();
     @Test(expected = ExceededSizeLimitException.class)
-    public void createWithJsonValueOverLimit() throws FileNotFoundException, ExceededSizeLimitException, NonUniqueKeyException, MissingKeyException, EmptyFileException
+    public void createWithJsonValueOverLimit() throws FileNotFoundException, ExceededSizeLimitException, NonUniqueKeyException
     {   for(int i=0;i<2052;i++)
         json.put("adsd"+i,2);
         assertEquals(key,k.create(key,json));

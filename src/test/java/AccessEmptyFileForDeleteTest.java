@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 
 import static org.junit.Assert.assertEquals;
 
-public class BTest {
+public class AccessEmptyFileForDeleteTest {
     KeyValueStore k = new KeyValueStore();
     String key="asdasd232asddasdasd";
     @Test(expected= EmptyFileException.class)
