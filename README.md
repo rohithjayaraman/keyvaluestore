@@ -9,7 +9,7 @@ Local file based key value data store
 ### Installation
 Clone this repository to any desired location on your system:
 ``` 
-git clone https://github.com/theparselmouth/keyvaluestore.git 
+git clone https://github.com/rohithjayaraman/keyvaluestore.git 
 ```
 or download as a zip file and extract
 ### Usage
